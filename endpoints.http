@@ -29,13 +29,13 @@ Content-Type: application/json
 }
 
 ### Listar itens do carrinho do usuário logado
-GET http://localhost:1337/api/cart-itens?populate[product][populate][image]=*
+GET http://localhost:1337/api/cart-items?populate[product][populate][image]=*
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc0OTE4NjU4LCJleHAiOjE3Nzc1MTA2NTh9.QHl8OYITl0OO3I3keyoc7-OumQzJMzitr3QcIaoZItI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc0OTE5MjQ1LCJleHAiOjE3Nzc1MTEyNDV9.eV-F_IYeRLLW5lQKBoPEKCb2Xe7vwbv9cfzVddFRwek
 
 
 ### Adicionar Produto no Carrinho do usuário logado
-POST http://localhost:1337/api/cart-itens
+POST http://localhost:1337/api/cart-items
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc0OTE4NDA0LCJleHAiOjE3Nzc1MTA0MDR9.OydCwBQwDm8bXaImLnbqSCB7DM0NystRV0w5ee0QLqE
 
@@ -47,7 +47,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 }
 
 ### Atualizar Produto do carrinho
-PUT http://localhost:1337/api/cart-itens/hhte5hs0w56fvejuv9lpa2pw
+PUT http://localhost:1337/api/cart-items/hhte5hs0w56fvejuv9lpa2pw
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzc0Mzk0NTM3LCJleHAiOjE3NzY5ODY1Mzd9.NK0v9JiMElbQjgnASWiQe6hZVaJQr6s52dyxjgDfCWQ
 
@@ -58,6 +58,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
 }
 
 ### Deletar produto do carrinho
-DELETE http://localhost:1337/api/cart-itens/hhte5hs0w56fvejuv9lpa2pw
+DELETE http://localhost:1337/api/cart-items/hhte5hs0w56fvejuv9lpa2pw
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzc0Mzk0NTM3LCJleHAiOjE3NzY5ODY1Mzd9.NK0v9JiMElbQjgnASWiQe6hZVaJQr6s52dyxjgDfCWQ
