@@ -1,7 +1,7 @@
 ### Buscar produtos
 GET http://localhost:1337/api/products
 ?populate=image
-&pagination[pageSize]=1
+&pagination[pageSize]=5
 &pagination[page]=1
 &filters[$or][0][title][$contains]=abc
 &filters[$or][1][description][$contains]=descr
@@ -14,7 +14,7 @@ POST http://localhost:1337/api/auth/local
 Content-Type: application/json
 
 {
-    "identifier": "teste1",
+    "identifier": "joao",
     "password": "123456"
 }
 
@@ -31,18 +31,18 @@ Content-Type: application/json
 ### Listar itens do carrinho do usuário logado
 GET http://localhost:1337/api/cart-itens?populate[product][populate][image]=*
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzc0Mzk0NTM3LCJleHAiOjE3NzY5ODY1Mzd9.NK0v9JiMElbQjgnASWiQe6hZVaJQr6s52dyxjgDfCWQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc0OTE4NjU4LCJleHAiOjE3Nzc1MTA2NTh9.QHl8OYITl0OO3I3keyoc7-OumQzJMzitr3QcIaoZItI
 
 
 ### Adicionar Produto no Carrinho do usuário logado
 POST http://localhost:1337/api/cart-itens
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzc0Mzk0NTM3LCJleHAiOjE3NzY5ODY1Mzd9.NK0v9JiMElbQjgnASWiQe6hZVaJQr6s52dyxjgDfCWQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc0OTE4NDA0LCJleHAiOjE3Nzc1MTA0MDR9.OydCwBQwDm8bXaImLnbqSCB7DM0NystRV0w5ee0QLqE
 
 {
 	"data":{
 		"quantity": 1,
-		"product": "mwzqceh48c07bio1r4wgeu4r"
+		"product": "xgbh5qoow3whhlmp4incnjgk"
 	}
 }
 
