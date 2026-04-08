@@ -5,7 +5,7 @@ import DesktopNavMenu from "./DesktopNavMenu";
 import UserAuthenticationActions from "./UserAuthenticationActions";
 
 function Header() {
-    return (
+  return (
     <AppBar position="static" elevation={1}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <MobileNavMenu />
