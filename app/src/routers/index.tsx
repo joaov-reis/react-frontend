@@ -11,15 +11,20 @@ import CartPage from "../pages/cart";
 export const Routers = () => {
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+      <Route element={<Layout/>}>
+        <Route
+          path="/"
+          element={
+            <Home/>
+          }
+        />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/product/:id" element={<ProductDetail/>} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage/>} />
         </Route>
       </Route>
     </Routes>
