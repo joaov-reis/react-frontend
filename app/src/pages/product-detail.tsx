@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/preserve-manual-memoization */
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router";
 import type { Product } from "../types";

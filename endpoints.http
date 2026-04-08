@@ -14,7 +14,7 @@ POST http://localhost:1337/api/auth/local
 Content-Type: application/json
 
 {
-    "identifier": "joao",
+    "identifier": "jose",
     "password": "123456"
 }
 

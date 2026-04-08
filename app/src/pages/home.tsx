@@ -1,6 +1,7 @@
 import {Grid, Box, Button, Paper, Typography } from "@mui/material";
 import { Headset, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
 import CardFeature from "../components/CardFeature";
+import { Link as RouterLink } from "react-router";
 
 function Home() {
   const features = [
@@ -64,6 +65,8 @@ function Home() {
           size="large"
           startIcon={<ShoppingBag />}
           onClick={() => {}}
+          component={RouterLink}
+          to="/products"
           sx={{
             px: 4,
             py: 1.5,
