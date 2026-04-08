@@ -37,7 +37,7 @@ export const fetchCartItems = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await api.get<ResponseCartItems>(
-        "/cart-itens?populate[product][populate][image]=*",
+        "/cart-items?populate[product][populate][image]=*",
       );
       return data.data
     } catch {
@@ -53,7 +53,7 @@ export const updateCartItem = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const { data } = await api.put(`/cart-itens/${documentId}`, {
+      const { data } = await api.put(`/cart-items/${documentId}`, {
         data: { quantity },
       });
       return data.data as CartItem;
@@ -68,7 +68,7 @@ export const addCartItem = createAsyncThunk(
   async (product: Product, { dispatch, rejectWithValue }) =>{
     try{
       const { data: existing } = await api.get<ResponseCartItems>(
-        `/cart-itens?filters[product][documentId][$eq]=${product.documentId}&populate[product][populate][image]=*`,
+        `/cart-items?filters[product][documentId][$eq]=${product.documentId}&populate[product][populate][image]=*`,
       );
       const existingItem = existing.data[0] ?? null;
 
@@ -82,7 +82,7 @@ export const addCartItem = createAsyncThunk(
         return null;
       }
 
-      const { data } = await api.post("/cart-itens", {
+      const { data } = await api.post("/cart-items", {
         data: {
           product: product.documentId,
           quantity: 1,
@@ -100,7 +100,7 @@ export const removeCartItem = createAsyncThunk(
   "cart/removeCartItem",
   async (documentId: string, { rejectWithValue }) => {
     try {
-      await api.delete(`/cart-itens/${documentId}`);
+      await api.delete(`/cart-items/${documentId}`);
       return documentId;
     } catch {
       return rejectWithValue("Não foi possível remover o item.");

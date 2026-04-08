@@ -11,13 +11,17 @@ export default factories.createCoreController(
     async find(ctx: Context) {
       const user = ctx.state.user;
       if (!user) return ctx.unauthorized();
-      
-      const entities = await strapi.entityService.findMany("api::cart-item.cart-item", {
-        ...ctx.query,
-        filters: {
-          user: user.id,
+
+      const entities = await strapi.entityService.findMany(
+        "api::cart-item.cart-item",
+        {
+          ...ctx.query,
+          filters: {
+            ...(ctx.query.filters as object),
+            user: user.id,
+          },
         },
-      });
+      );
 
       const sanitizedEntities = await this.sanitizeOutput(entities, ctx);
       return this.transformResponse(sanitizedEntities);
