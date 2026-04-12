@@ -21,6 +21,7 @@ function Home() {
       description: "Nossa equipe de especialistas pronta para te ajudar.",
     },
   ];
+  
   return (
     <Box>
       <Paper

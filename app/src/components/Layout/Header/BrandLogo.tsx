@@ -18,7 +18,7 @@ function BrandLogo() {
       mr: { md: 4 },
     }}
   >
-    <Store color="gold" /> MyStore
+    <Store color="gold" /> MyCinema
   </Typography>;
 }
 
