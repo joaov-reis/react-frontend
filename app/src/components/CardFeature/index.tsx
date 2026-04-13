@@ -17,7 +17,7 @@ function CardFeature({
         textAlign: "center",
         backgroundColor: "background.paper",
         transition: "transform 0.3s ease",
-        "&:hover": { transform: "translateX(10px)" },
+        "&:hover": { transform: "scale(1.05)" },
       }}
     >
       <Box sx={{ color: "primary.main", mb: 2 }}>{icon}</Box>
