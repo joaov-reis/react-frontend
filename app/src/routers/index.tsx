@@ -8,7 +8,8 @@ import Products from "../pages/products";
 import ProductDetail from "../pages/product-detail";
 import CartPage from "../pages/cart";
 import Movies from "../pages/movies";
-// import MovieDetail from "../components/MovieDetail";
+import MovieDetail from "../pages/movie-detail";
+
 
 export const Routers = () => {
   return (
@@ -24,7 +25,7 @@ export const Routers = () => {
         <Route path="/register" element={<Register/>} />
 
         <Route path="/movies" element={<Movies/>} />
-        {/* <Route path="/movie/:id" element={<MovieDetail/>} /> */}
+        <Route path="/movie/:id" element={<MovieDetail/>} />
 
         <Route path="/products" element={<Products/>} />
         <Route path="/product/:id" element={<ProductDetail/>} />

@@ -36,7 +36,7 @@ function MovieList({
   if (isError) {
     return (
       <Typography color="error" align="center" sx={{ py: 5 }}>
-        Erro ao carregar os produtos.
+        Erro ao carregar os filmes.
       </Typography>
     );
   }
@@ -44,7 +44,7 @@ function MovieList({
   if (!data?.data || data.data.length === 0) {
     return (
       <Typography align="center" color="text.secondary" sx={{ py: 5 }}>
-        Nenhum produto encontrado para "{searchText}".
+        Nenhum filme encontrado para "{searchText}".
       </Typography>
     );
   }

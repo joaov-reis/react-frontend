@@ -29,7 +29,7 @@ export interface Movie {
   synopsis: string;
   genre: string;
   duration: string;
-  poster?: {
+  image?: {
     url: string;
   };
 }
@@ -75,10 +75,6 @@ export interface CartItem {
 export interface ResponseCartItems {
   data: CartItem[];
 }
-
-
-
-
 
 export interface MyReview {
   id: number;

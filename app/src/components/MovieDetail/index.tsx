@@ -10,8 +10,8 @@ interface MovieDetailProps {
 }
 
 function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
-  const { title, synopsis, poster, genre, duration } = movie;
-  const imageUrl = getImageUrlMovie(poster?.url);
+  const { title, synopsis, image, genre, duration } = movie;
+  const imageUrl = getImageUrlMovie(image?.url);
 
   return (
     <Paper

@@ -21,9 +21,9 @@ interface CardMovieProps {
 function CardMovie({ movie }: CardMovieProps) {
   const navigate = useNavigate();
 
-  const { documentId, title, genre, duration, poster } = movie;
+  const { documentId, title, genre, duration, image } = movie;
 
-  const imageUrl = getImageUrlMovie(poster?.url);
+  const imageUrl = getImageUrlMovie(image?.url);
 
   return (
     <Card

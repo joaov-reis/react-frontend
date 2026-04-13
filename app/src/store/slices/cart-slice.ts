@@ -39,7 +39,7 @@ export const fetchCartItems = createAsyncThunk(
       const { data } = await api.get<ResponseCartItems>(
         "/cart-items?populate[product][populate][image]=*",
       );
-      return data.data
+      return data.data;
     } catch {
       return rejectWithValue("Não foi possível carregar o carrinho.");
     }
@@ -64,15 +64,15 @@ export const updateCartItem = createAsyncThunk(
 );
 
 export const addCartItem = createAsyncThunk(
-  "cart/addCartItem", 
-  async (product: Product, { dispatch, rejectWithValue }) =>{
-    try{
+  "cart/addCartItem",
+  async (product: Product, { dispatch, rejectWithValue }) => {
+    try {
       const { data: existing } = await api.get<ResponseCartItems>(
         `/cart-items?filters[product][documentId][$eq]=${product.documentId}&populate[product][populate][image]=*`,
       );
       const existingItem = existing.data[0] ?? null;
 
-      if(existingItem){
+      if (existingItem) {
         await dispatch(
           updateCartItem({
             documentId: existingItem.documentId,
@@ -93,7 +93,7 @@ export const addCartItem = createAsyncThunk(
     } catch {
       return rejectWithValue("Não foi possível adicionar o item ao carrinho.");
     }
-  }
+  },
 );
 
 export const removeCartItem = createAsyncThunk(

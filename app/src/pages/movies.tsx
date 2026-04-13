@@ -3,10 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { Box, TextField, Typography } from "@mui/material";
+import type { ResponseMovies } from "../types";
+import MovieList from "../components/MovieList";
 import { useDebounce } from "../hooks/useDebounce";
 import { MINUTES_30 } from "../constants";
-import MovieList from "../components/MovieList";
-import type { ResponseMovies } from "../types";
+
 
 function Movies() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -19,10 +20,11 @@ function Movies() {
     setPage(1);
   }, [debouncedSearch]);
 
+  
   const { data, isLoading, isError } = useQuery<ResponseMovies>({
     queryKey: ["movies", page, debouncedSearch],
     queryFn: async () => {
-      let url = `/movies?populate=poster&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+      let url = `/movies?populate=image&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
       if (debouncedSearch) {
         url += `&filters[$or][0][title][$containsi]=${debouncedSearch}`;
@@ -40,7 +42,7 @@ function Movies() {
         variant="h4"
         sx={{ fontWeight: 700, mb: 4, color: "primary.main" }}
       >
-        Filmes
+        Filme
       </Typography>
 
       <SearchBar onChange={setSearchTerm} value={searchTerm} />

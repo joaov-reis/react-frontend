@@ -18,7 +18,15 @@
     "synopsis": {
       "type": "text"
     },
-    "poster": {
+    "duration": {
+      "type": "string"
+    },
+    "genre": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::genre.genre"
+    },
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -27,14 +35,6 @@
         "videos",
         "audios"
       ]
-    },
-    "genre": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::genre.genre"
-    },
-    "duration": {
-      "type": "string"
     }
   }
 }
