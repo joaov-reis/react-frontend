@@ -531,14 +531,11 @@ export interface ApiMovieMovie extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     duration: Schema.Attribute.String;
-    generos: Schema.Attribute.Relation<'oneToMany', 'api::genre.genre'>;
+    genre: Schema.Attribute.Relation<'oneToMany', 'api::genre.genre'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::movie.movie'> &
       Schema.Attribute.Private;
-    poster: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    poster: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     synopsis: Schema.Attribute.Text;
     title: Schema.Attribute.Text & Schema.Attribute.Required;

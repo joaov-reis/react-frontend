@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { Store } from "lucide-react";
+import { Popcorn } from "lucide-react";
 import { Link as RouterLink } from "react-router";
 
 function BrandLogo() {
@@ -18,7 +18,7 @@ function BrandLogo() {
       mr: { md: 4 },
     }}
   >
-    <Store color="gold" /> MyCinema
+    <Popcorn color="red" /> MyCinema
   </Typography>;
 }
 

@@ -10,6 +10,30 @@ export interface ResponseProducts {
   };
 }
 
+export interface ResponseMovies {
+  data: Movie[];
+  meta: {
+    pagination: {
+      page: number;
+      pageCount: number;
+      pageSize: number;
+      total: number;
+    };
+  };
+}
+
+export interface Movie {
+  id: number;
+  documentId: string;
+  title: string;
+  synopsis: string;
+  genre: string;
+  duration: string;
+  poster?: {
+    url: string;
+  };
+}
+
 export interface Product {
   id: number;
   documentId: string;
@@ -50,4 +74,20 @@ export interface CartItem {
 
 export interface ResponseCartItems {
   data: CartItem[];
+}
+
+
+
+
+
+export interface MyReview {
+  id: number;
+  documentId: string;
+  rating: number;
+  review?: string;
+  filme: Movie;
+}
+
+export interface ResponseMyReviews {
+  data: MyReview[];
 }

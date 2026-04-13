@@ -13,7 +13,6 @@ function UserAuthenticationActions() {
 
   const handleUserLogout = useCallback(() => {
     dispatch(logout());
-    // navigate("/login");
   }, [navigate, dispatch]);
 
   if (isAuthenticated) {
@@ -52,7 +51,7 @@ function UserAuthenticationActions() {
         component={RouterLink}
         to="/register"
       >
-        Registrar
+        Cadastre-se
       </Button>
     </Box>
   );

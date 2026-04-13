@@ -7,6 +7,8 @@ import Login from "../pages/login";
 import Products from "../pages/products";
 import ProductDetail from "../pages/product-detail";
 import CartPage from "../pages/cart";
+import Movies from "../pages/movies";
+// import MovieDetail from "../components/MovieDetail";
 
 export const Routers = () => {
   return (
@@ -20,6 +22,10 @@ export const Routers = () => {
         />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+
+        <Route path="/movies" element={<Movies/>} />
+        {/* <Route path="/movie/:id" element={<MovieDetail/>} /> */}
+
         <Route path="/products" element={<Products/>} />
         <Route path="/product/:id" element={<ProductDetail/>} />
 

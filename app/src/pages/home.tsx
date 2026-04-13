@@ -1,24 +1,19 @@
 import {Grid, Box, Button, Paper, Typography } from "@mui/material";
-import { Headset, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
+import { Popcorn, Share2 } from "lucide-react";
 import CardFeature from "../components/CardFeature";
 import { Link as RouterLink } from "react-router";
 
 function Home() {
   const features = [
     {
-      icon: <Truck size={40} />,
-      title: "Entrega Rápida",
-      description: "Receba seus produtos em tempo recorde em todo o Brasil.",
+      icon: <Popcorn size={40} />,
+      title: "Assista e avalie",
+      description: "Crie seu catálogo pessoal de filmes.",
     },
     {
-      icon: <ShieldCheck size={40} />,
-      title: "Compra Segura",
-      description: "Seus dados protegidos com criptografia de ponta a ponta.",
-    },
-    {
-      icon: <Headset size={40} />,
-      title: "Suporte 24/7",
-      description: "Nossa equipe de especialistas pronta para te ajudar.",
+      icon: <Share2 size={40} />,
+      title: "Compartilhe",
+      description: "Milhares de avaliações públicas.",
     },
   ];
   
@@ -51,23 +46,21 @@ function Home() {
             },
           }}
         >
-          Tech & Code Store
+          Bem vindo ao MyCinema
         </Typography>
         <Typography
           variant="h5"
           color="text.secondary"
           sx={{ mb: 4, maxWidth: "700px", mx: "auto" }}
         >
-          A loja oficial para programadores que buscam performance, estilo e as
-          melhores ferramentas para o dia a dia.
+          Sua plataforma oficial  para registro, avaliação e compartilhamento de filmes. Crie seu catálogo virtual, avalie suas obras favoritas e compartilhe suas opiniões com a comunidade.
         </Typography>
         <Button
           variant="contained"
           size="large"
-          startIcon={<ShoppingBag />}
           onClick={() => {}}
           component={RouterLink}
-          to="/products"
+          to="/movies"
           sx={{
             px: 4,
             py: 1.5,
@@ -75,7 +68,7 @@ function Home() {
             fontWeight: "bold",
           }}
         >
-          Explorar Produtos
+          Já assistiu? Selecione o filme!
         </Button>
       </Paper>
       <Grid container spacing={4}>

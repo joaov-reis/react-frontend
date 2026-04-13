@@ -20,7 +20,7 @@
     },
     "poster": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -28,7 +28,7 @@
         "audios"
       ]
     },
-    "generos": {
+    "genre": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::genre.genre"

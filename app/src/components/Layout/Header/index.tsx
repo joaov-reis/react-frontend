@@ -9,11 +9,8 @@ function Header() {
     <AppBar position="static" elevation={1}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <MobileNavMenu />
-
         <BrandLogo />
-
         <DesktopNavMenu />
-
         <UserAuthenticationActions />
       </Toolbar>
     </AppBar>

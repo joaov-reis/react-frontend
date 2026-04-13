@@ -8,7 +8,7 @@ function Footer() {
     >
       <Container maxWidth="lg">
         <Typography variant="body2" color="text.secondary" align="center">
-          © {new Date().getFullYear()} MyStore. Todos os direitos reservados.
+          © {new Date().getFullYear()} Estudos de React. Todos os direitos reservados.
         </Typography>
         <Typography variant="caption" color="text.secondary" align="center" display="block">
             Icones: Lucide
