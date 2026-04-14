@@ -1,15 +1,3 @@
-export interface ResponseProducts {
-  data: Product[];
-  meta: {
-    pagination: {
-      page: number;
-      pageCount: number;
-      pageSize: number;
-      total: number;
-    };
-  };
-}
-
 export interface ResponseMovies {
   data: Movie[];
   meta: {
@@ -28,20 +16,8 @@ export interface Movie {
   title: string;
   synopsis: string;
   genre: string;
-  rating: number;
+  rating?: number;
   duration: string;
-  image?: {
-    url: string;
-  };
-}
-
-export interface Product {
-  id: number;
-  documentId: string;
-  title: string;
-  description: string;
-  price: number;
-  stock: number;
   image?: {
     url: string;
   };
@@ -58,25 +34,6 @@ export interface AuthResponse {
   user: User;
 }
 
-export interface CartItem {
-  id: number;
-  documentId: string;
-  quantity: number;
-  product: {
-    id: number;
-    documentId: string;
-    title: string;
-    price: number;
-    image?: {
-      url: string;
-    };
-  };
-}
-
-export interface ResponseCartItems {
-  data: CartItem[];
-}
-
 export interface MyReview {
   id: number;
   documentId: string;
@@ -88,10 +45,9 @@ export interface MyReview {
     title: string;
     genre: string;
     image?: {
-    url: string;
+      url: string;
+    };
   };
-
-  }
 }
 
 export interface ResponseMyReviews {

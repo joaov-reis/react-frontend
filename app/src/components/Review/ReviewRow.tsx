@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Divider, IconButton, Typography } from "@mui/material";
 import type { MyReview } from "../../types";
-import { getImageUrlProduct } from "../../utils/generateImageProduct";
+import { getImageUrlMovie } from "../../utils/generateImageMovie";
 import { useCallback } from "react";
 import { Minus, Plus, Trash2 } from "lucide-react";
 
@@ -18,7 +18,7 @@ function ReviewRow({
   onUpdateRating,
 }: ReviewRowProps) {
   const { documentId, rating, movie } = review;
-  const imageUrl = getImageUrlProduct(movie.image?.url);
+  const imageUrl = getImageUrlMovie(movie.image?.url);
   const ratingValue = rating;
 
   const handleIncrement = useCallback(() => {

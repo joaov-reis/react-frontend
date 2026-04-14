@@ -1,4 +1,12 @@
-import { Box, Button, Divider, Grid, Paper, Rating, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Paper,
+  Rating,
+  Typography,
+} from "@mui/material";
 import type { Movie } from "../../types";
 import { getImageUrlMovie } from "../../utils/generateImageMovie";
 import { Popcorn } from "lucide-react";
@@ -72,7 +80,7 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
           <Box display="flex" gap={3} mb={4} color="text.secondary">
             <Box display="flex" alignItems="center" gap={1}>
               <Typography variant="body2">
-                <Rating defaultValue={2} uncontrolled />
+                <Rating defaultValue={rating} uncontrolled />
               </Typography>
             </Box>
           </Box>
