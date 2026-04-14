@@ -10,16 +10,18 @@ import {
 import type { Movie } from "../../types";
 import { getImageUrlMovie } from "../../utils/generateImageMovie";
 import { Popcorn } from "lucide-react";
+import { useState } from "react";
 export { default as MovieDetailSkeleton } from "./Skeleton";
 
 interface MovieDetailProps {
-  onAddToMyReviews: () => void;
+  onAddToMyReviews: (movieId: number, rating: number | null) => void;
   movie: Movie;
 }
 
 function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
-  const { title, synopsis, image, duration, rating } = movie;
+  const { title, synopsis, image, duration } = movie;
   const imageUrl = getImageUrlMovie(image?.url);
+  const [rating, setRating] = useState<number | null>(null);
 
   return (
     <Paper
@@ -70,7 +72,7 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
           <Divider sx={{ mb: 3, borderColor: "gray" }} />
 
           <Typography
-            variant="body2"
+            variant="body1"
             color="text.secondary"
             sx={{ lineHeight: 1.8, flexGrow: 1 }}
           >
@@ -79,25 +81,30 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
 
           <Box display="flex" gap={3} mb={4} color="text.secondary">
             <Box display="flex" alignItems="center" gap={1}>
-              <Typography variant="body1">
-                Sua avaliação:  
-                <Rating defaultValue={rating} uncontrolled />
-              </Typography>
+              <Typography variant="body1">Sua avaliação:</Typography>
+              <Rating
+                value={rating}
+                precision={1}
+                onChange={(_, newValue) => {
+                  setRating(newValue);
+                }}
+              />
             </Box>
           </Box>
 
           <Button
             variant="contained"
+            fullWidth
             size="large"
             startIcon={<Popcorn />}
-            onClick={onAddToMyReviews}
+            disabled={rating === null}
+            onClick={() => onAddToMyReviews(movie.id, rating)}
             sx={{
               py: 2,
               fontSize: "1.1rem",
               fontWeight: "bold",
               textTransform: "uppercase",
             }}
-            fullWidth
           >
             Criar avaliação
           </Button>

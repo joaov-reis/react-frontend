@@ -10,7 +10,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { ShoppingCart } from "lucide-react";
+import { Popcorn } from "lucide-react";
 import { getImageUrlMovie } from "../../utils/generateImageMovie";
 export { default as CardSkeleton } from "./Skeleton";
 
@@ -60,7 +60,7 @@ function CardMovie({ movie }: CardMovieProps) {
           <Button
             variant="contained"
             size="small"
-            startIcon={<ShoppingCart size={18} />}
+            startIcon={<Popcorn size={18} />}
             onClick={() => navigate(`/movie/${documentId}`)}
           >
             Ver Mais

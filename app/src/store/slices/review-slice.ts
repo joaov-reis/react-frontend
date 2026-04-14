@@ -2,11 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../services/api";
 import type { RootState } from "..";
 import { logout } from "./auth-slice";
-import type {
-  Movie,
-  MyReview,
-  ResponseMyReviews,
-} from "../../types";
+import type { Movie, MyReview, ResponseMyReviews } from "../../types";
 
 const StatusReview = {
   IDLE: "idle",
@@ -66,31 +62,44 @@ export const updateReview = createAsyncThunk(
 
 export const addReview = createAsyncThunk(
   "review/addReview",
-  async (movie: Movie, { dispatch, rejectWithValue }) => {
+  async (
+    { movie, rating }: { movie: Movie; rating: number },
+    { dispatch, rejectWithValue },
+  ) => {
     try {
-      const { data: existing } = await api.get<ResponseMyReviews>(
+      const { data: existing } = await api.get(
         `/reviews?filters[movie][documentId][$eq]=${movie.documentId}&populate[movie][populate][image]=*`,
       );
+
       const existingReview = existing.data[0] ?? null;
 
       if (existingReview) {
         await dispatch(
           updateReview({
             documentId: existingReview.documentId,
-            rating: existingReview.rating + 1,
+            rating,
           }),
-        );
-        return null;
+        ).unwrap();
+
+        return {
+          ...existingReview,
+          rating,
+          movie: existingReview.movie ?? movie,
+        } as MyReview;
       }
 
       const { data } = await api.post("/reviews", {
         data: {
           movie: movie.documentId,
-          rating: 1,
+          rating,
         },
       });
 
-      return { ...data.data, movie } as MyReview;
+      return {
+        ...data.data,
+        rating,
+        movie,
+      } as MyReview;
     } catch {
       return rejectWithValue("Não foi possível adicionar a avaliação.");
     }

@@ -39,19 +39,30 @@ function PageMovieDetail() {
     staleTime: MINUTES_30,
   });
 
-  const handleAddReview = useCallback(async () => {
-    if (!isAuthenticated) return navigate("/login")
-
-    if (!movieData?.data) return;
-    try {
-      await dispatch(addReview(movieData.data)).unwrap();
-      toast.success(
-        `Filme "${movieData.data.title}" adicionado as suas avaliações!`,
-      );
-    } catch {
-      toast.error("Não foi possível adicionar o filme às avaliações.");
+  const handleAddReview = useCallback(
+  async (movieId: number, rating: number | null) => {
+    if (!isAuthenticated) {
+      navigate("/login");
+      return;
     }
-  }, [movieData, dispatch, toast, isAuthenticated]);
+
+    if (!movieData?.data || rating === null) return;
+
+    try {
+      await dispatch(
+        addReview({
+          movie: movieData.data,
+          rating,
+        }),
+      ).unwrap();
+
+      toast.success(`Avaliação para "${movieData.data.title}" salva com sucesso!`);
+    } catch {
+      toast.error("Não foi possível salvar a avaliação.");
+    }
+  },
+  [dispatch, isAuthenticated, movieData, navigate, toast],
+);
 
   if (isLoading) {
     return (
@@ -69,7 +80,7 @@ function PageMovieDetail() {
         </Typography>
         <Button
           startIcon={<ArrowLeft />}
-          onClick={() => navigate("/products")}
+          onClick={() => navigate("/movies")}
           sx={{ mt: 2 }}
         >
           Voltar para catálogo de filmes
