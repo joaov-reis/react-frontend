@@ -79,9 +79,9 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
 
           <Box display="flex" gap={3} mb={4} color="text.secondary">
             <Box display="flex" alignItems="center" gap={1}>
-              <Typography variant="body2">
+              {/* <Typography variant="body2">
                 <Rating defaultValue={rating} uncontrolled />
-              </Typography>
+              </Typography> */}
             </Box>
           </Box>
 

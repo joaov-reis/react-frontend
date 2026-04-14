@@ -6,14 +6,14 @@ import { factories } from "@strapi/strapi";
 import { Context } from "koa";
 
 export default factories.createCoreController(
-  "api::cart-item.cart-item",
+  "api::review.review",
   ({ strapi }) => ({
     async find(ctx: Context) {
       const user = ctx.state.user;
       if (!user) return ctx.unauthorized();
 
       const entities = await strapi.entityService.findMany(
-        "api::cart-item.cart-item",
+        "api::review.review",
         {
           ...ctx.query,
           filters: {
@@ -34,11 +34,11 @@ export default factories.createCoreController(
       const { data } = ctx.request.body;
 
       const entity = await strapi.entityService.create(
-        "api::cart-item.cart-item",
+        "api::review.review",
         {
           data: {
-            quantity: data.quantity || 1,
-            product: data.product,
+            rating: data.rating || 1,
+            movie: data.movie,
             user: user.id,
             publishedAt: new Date(),
           },
