@@ -23,7 +23,7 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "filme": {
+    "movie": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::movie.movie"

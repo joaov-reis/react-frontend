@@ -32,11 +32,11 @@ const initialState: ReviewState = {
 };
 
 export const fetchReviews = createAsyncThunk(
-  "review/fetchReviews",
+  "reviews/fetchReviews",
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await api.get<ResponseMyReviews>(
-        "/my-reviews?populate[filme][populate][image]=*",
+        "/reviews?populate[movie][populate][image]=*",
       );
       return data.data;
     } catch {
@@ -54,7 +54,7 @@ export const updateReview = createAsyncThunk(
     { rejectWithValue },
   ) => {
     try {
-      const { data } = await api.put(`/my-reviews/${documentId}`, {
+      const { data } = await api.put(`/reviews/${documentId}`, {
         data: { rating },
       });
       return data.data as MyReview;
@@ -69,7 +69,7 @@ export const addReview = createAsyncThunk(
   async (movie: Movie, { dispatch, rejectWithValue }) => {
     try {
       const { data: existing } = await api.get<ResponseMyReviews>(
-        `/my-reviews?filters[movie][documentId][$eq]=${movie.documentId}&populate[product][populate][image]=*`,
+        `/reviews?filters[movie][documentId][$eq]=${movie.documentId}&populate[movie][populate][image]=*`,
       );
       const existingReview = existing.data[0] ?? null;
 
@@ -83,7 +83,7 @@ export const addReview = createAsyncThunk(
         return null;
       }
 
-      const { data } = await api.post("/my-reviews", {
+      const { data } = await api.post("/reviews", {
         data: {
           movie: movie.documentId,
           rating: 1,
@@ -101,7 +101,7 @@ export const removeReview = createAsyncThunk(
   "review/removeReview",
   async (documentId: string, { rejectWithValue }) => {
     try {
-      await api.delete(`/my-reviews/${documentId}`);
+      await api.delete(`/reviews/${documentId}`);
       return documentId;
     } catch {
       return rejectWithValue("Não foi possível remover a avaliação.");

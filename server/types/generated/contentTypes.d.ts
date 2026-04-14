@@ -498,13 +498,13 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    filme: Schema.Attribute.Relation<'oneToOne', 'api::movie.movie'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::review.review'
     > &
       Schema.Attribute.Private;
+    movie: Schema.Attribute.Relation<'oneToOne', 'api::movie.movie'>;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Integer & Schema.Attribute.Required;
     review: Schema.Attribute.Text;
