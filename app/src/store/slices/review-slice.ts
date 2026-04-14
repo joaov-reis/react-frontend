@@ -185,6 +185,6 @@ const reviewSlice = createSlice({
   },
 });
 
-export const selectCart = (state: RootState) => state.cart;
+export const selectReviews = (state: RootState) => state.reviews;
 export const { clearReviews } = reviewSlice.actions;
 export default reviewSlice.reducer;

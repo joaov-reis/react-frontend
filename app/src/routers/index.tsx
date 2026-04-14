@@ -9,6 +9,7 @@ import ProductDetail from "../pages/product-detail";
 import CartPage from "../pages/cart";
 import Movies from "../pages/movies";
 import MovieDetail from "../pages/movie-detail";
+import MyReviewsPage from "../pages/my-reviews";
 
 
 export const Routers = () => {
@@ -32,6 +33,7 @@ export const Routers = () => {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/cart" element={<CartPage/>} />
+          <Route path="/my-reviews" element={<MyReviewsPage/>} />
         </Route>
       </Route>
     </Routes>
