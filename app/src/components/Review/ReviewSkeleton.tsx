@@ -1,6 +1,6 @@
 import { Box, Divider, Skeleton } from "@mui/material";
 
-function CartItemSkeletonRow() {
+function ReviewSkeletonRow() {
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center", gap: 2, py: 2 }}>
@@ -18,12 +18,12 @@ function CartItemSkeletonRow() {
   );
 }
 
-export function CartItemSkeleton() {
+export function ReviewSkeleton() {
   return (
     <>
-      <CartItemSkeletonRow />
-      <CartItemSkeletonRow />
-      <CartItemSkeletonRow />
+      <ReviewSkeletonRow />
+      <ReviewSkeletonRow />
+      <ReviewSkeletonRow />
     </>
   );
 }

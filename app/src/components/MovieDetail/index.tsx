@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Grid, Paper, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, Paper, Rating, Typography } from "@mui/material";
 import type { Movie } from "../../types";
 import { getImageUrlMovie } from "../../utils/generateImageMovie";
 import { Popcorn } from "lucide-react";
@@ -10,7 +10,7 @@ interface MovieDetailProps {
 }
 
 function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
-  const { title, synopsis, image, genre, duration } = movie;
+  const { title, synopsis, image, duration, rating } = movie;
   const imageUrl = getImageUrlMovie(image?.url);
 
   return (
@@ -51,7 +51,7 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
           </Typography>
 
           <Typography
-            variant="h4"
+            variant="body2"
             color="primary.main"
             fontWeight="bold"
             sx={{ mb: 3 }}
@@ -66,32 +66,21 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
             color="text.secondary"
             sx={{ lineHeight: 1.8, flexGrow: 1 }}
           >
-            {duration}
-          </Typography>
-
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ lineHeight: 1.8, flexGrow: 1 }}
-          >
-            {genre}
+            Duração: {duration}
           </Typography>
 
           <Box display="flex" gap={3} mb={4} color="text.secondary">
             <Box display="flex" alignItems="center" gap={1}>
-              <Popcorn size={20} color="#90caf9" />
-              <Typography variant="body2">filme</Typography>
-            </Box>
-            <Box display="flex" alignItems="center" gap={1}>
-              <Popcorn size={20} color="#90caf9" />
-              <Typography variant="body2">Filme bom</Typography>
+              <Typography variant="body2">
+                <Rating defaultValue={2} uncontrolled />
+              </Typography>
             </Box>
           </Box>
 
           <Button
             variant="contained"
             size="large"
-            // startIcon={<ShoppingCart />}
+            startIcon={<Popcorn />}
             onClick={onAddToMyReviews}
             sx={{
               py: 2,

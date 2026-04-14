@@ -1,12 +1,11 @@
 import { Alert, Box, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { CartItemSkeleton } from "../components/Cart/CartItemSkeleton";
-import { CartEmpty } from "../components/Cart/CartEmpty";
 import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "../store";
-import CartSummary from "../components/Cart/CartSummary";
-import CartItemRow from "../components/Cart/CartItemRow";
 import { fetchReviews, removeReview, selectReviews, updateReview } from "../store/slices/review-slice";
+import { ReviewsEmpty } from "../components/Review/ReviewEmpty";
+import { ReviewSkeleton } from "../components/Review/ReviewSkeleton";
+import ReviewRow from "../components/Review/ReviewRow";
 
 function MyReviewsPage() {
   const dispatch = useAppDispatch();
@@ -57,27 +56,23 @@ function MyReviewsPage() {
         </Alert>
       )}
 
-      {isLoading && <CartItemSkeleton />}
-      {isEmpty && <CartEmpty />}
+      {isLoading && <ReviewSkeleton />}
+      {isEmpty && <ReviewsEmpty />}
 
       {hasItems && (
         <Grid container spacing={4} alignItems="flex-start">
           <Grid size={{ xs: 12, md: 8 }}>
             {reviews.map((review) => (
-              <CartItemRow
+              <ReviewRow
                 key={review.documentId}
                 review={review}
                 isProcessing={processingItemIds.includes(review.documentId)}
                 onRemove={handleRemove}
-                onUpdateQuantity={handleUpdateRating}
+                onUpdateRating={handleUpdateRating}
               />
             ))}
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <CartSummary
-              totalAmount={0}
-              totalQuantity={0}
-            />
           </Grid>
         </Grid>
       )}

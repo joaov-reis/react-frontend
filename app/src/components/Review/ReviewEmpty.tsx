@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router";
 
-export function CartEmpty() {
+export function ReviewsEmpty() {
   return (
     <Box
       sx={{

@@ -1,37 +1,37 @@
 import { Box, CircularProgress, Divider, IconButton, Typography } from "@mui/material";
-import type { CartItem } from "../../types";
+import type { MyReview } from "../../types";
 import { getImageUrlProduct } from "../../utils/generateImageProduct";
 import { useCallback } from "react";
 import { Minus, Plus, Trash2 } from "lucide-react";
 
-interface CartItemRowProps {
-  item: CartItem;
+interface ReviewRowProps {
+  review: MyReview;
   isProcessing: boolean;
-  onUpdateQuantity: (documentId: string, quantity: number) => void;
+  onUpdateRating: (documentId: string, rating: number) => void;
   onRemove: (documentId: string) => void;
 }
 
-function CartItemRow({
+function ReviewRow({
   isProcessing,
-  item,
+  review,
   onRemove,
-  onUpdateQuantity,
-}: CartItemRowProps) {
-  const { documentId, quantity, product } = item;
-  const imageUrl = getImageUrlProduct(product.image?.url);
-  const subtotal = product.price * quantity;
+  onUpdateRating,
+}: ReviewRowProps) {
+  const { documentId, rating, movie } = review;
+  const imageUrl = getImageUrlProduct(movie.image?.url);
+  const ratingValue = rating;
 
   const handleIncrement = useCallback(() => {
-    onUpdateQuantity(documentId, quantity + 1);
-  }, [documentId, quantity, onUpdateQuantity]);
+    onUpdateRating(documentId, rating + 1);
+  }, [documentId, rating, onUpdateRating]);
 
   const handleDecrement = useCallback(() => {
-    if (quantity <= 1) {
+    if (rating <= 1) {
       onRemove(documentId);
     } else {
-      onUpdateQuantity(documentId, quantity - 1);
+      onUpdateRating(documentId, rating - 1);
     }
-  }, [documentId, quantity, onRemove, onUpdateQuantity]);
+  }, [documentId, rating, onRemove, onUpdateRating]);
   return (
     <>
       <Box
@@ -47,7 +47,7 @@ function CartItemRow({
         <Box
           component="img"
           src={imageUrl}
-          alt={product.title}
+          alt={movie.title}
           sx={{
             width: 80,
             height: 80,
@@ -59,10 +59,10 @@ function CartItemRow({
 
         <Box sx={{ flexGrow: 1, minWidth: 0 }}>
           <Typography variant="subtitle1" fontWeight={600} noWrap>
-            {product.title}
+            {movie.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            R$ {product.price.toFixed(2)} / un.
+            Gênero: {movie.genre}
           </Typography>
         </Box>
 
@@ -80,7 +80,7 @@ function CartItemRow({
               <CircularProgress size={16} />
             ) : (
               <Typography variant="body1" fontWeight={600}>
-                {quantity}
+                {rating}
               </Typography>
             )}
           </Box>
@@ -100,7 +100,7 @@ function CartItemRow({
           color="primary.main"
           sx={{ minWidth: 80, textAlign: "right" }}
         >
-          R$ {subtotal.toFixed(2)}
+          {ratingValue.toFixed(0)}
         </Typography>
         <IconButton
           color="error"
@@ -117,4 +117,4 @@ function CartItemRow({
   );
 }
 
-export default CartItemRow;
+export default ReviewRow;

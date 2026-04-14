@@ -28,6 +28,7 @@ export interface Movie {
   title: string;
   synopsis: string;
   genre: string;
+  rating: number;
   duration: string;
   image?: {
     url: string;
@@ -81,7 +82,16 @@ export interface MyReview {
   documentId: string;
   rating: number;
   review?: string;
-  filme: Movie;
+  movie: {
+    id: number;
+    documentId: string;
+    title: string;
+    genre: string;
+    image?: {
+    url: string;
+  };
+
+  }
 }
 
 export interface ResponseMyReviews {
