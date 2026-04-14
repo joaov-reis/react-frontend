@@ -59,7 +59,7 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
           </Typography>
 
           <Typography
-            variant="body2"
+            variant="body1"
             color="primary.main"
             fontWeight="bold"
             sx={{ mb: 3 }}
@@ -70,7 +70,7 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
           <Divider sx={{ mb: 3, borderColor: "gray" }} />
 
           <Typography
-            variant="body1"
+            variant="body2"
             color="text.secondary"
             sx={{ lineHeight: 1.8, flexGrow: 1 }}
           >
@@ -79,9 +79,10 @@ function MovieDetail({ onAddToMyReviews, movie }: MovieDetailProps) {
 
           <Box display="flex" gap={3} mb={4} color="text.secondary">
             <Box display="flex" alignItems="center" gap={1}>
-              {/* <Typography variant="body2">
+              <Typography variant="body1">
+                Sua avaliação:  
                 <Rating defaultValue={rating} uncontrolled />
-              </Typography> */}
+              </Typography>
             </Box>
           </Box>
 

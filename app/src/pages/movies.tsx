@@ -12,7 +12,7 @@ import { MINUTES_30 } from "../constants";
 function Movies() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [page, setPage] = useState<number>(1);
-  const pageSize = 1;
+  const pageSize = 6;
 
   const debouncedSearch = useDebounce<string>(searchTerm, 500);
 
