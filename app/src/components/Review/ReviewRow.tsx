@@ -62,10 +62,6 @@ function ReviewRow({
               {movie.title}
             </Typography>
 
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-              Gênero: {movie.genre}
-            </Typography>
-
             {isProcessing ? (
               <CircularProgress size={20} />
             ) : (
