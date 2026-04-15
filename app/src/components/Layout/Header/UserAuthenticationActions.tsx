@@ -46,7 +46,7 @@ function UserAuthenticationActions() {
         Entrar
       </Button>
       <Button
-        color="info"
+        color="inherit"
         variant="contained"
         component={RouterLink}
         to="/register"

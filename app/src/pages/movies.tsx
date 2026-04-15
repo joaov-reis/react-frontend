@@ -42,7 +42,7 @@ function Movies() {
         variant="h4"
         sx={{ fontWeight: 700, mb: 4, color: "primary.main" }}
       >
-        Filme
+        Catálogo de filmes
       </Typography>
 
       <SearchBar onChange={setSearchTerm} value={searchTerm} />

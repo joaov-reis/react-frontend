@@ -24,7 +24,7 @@ export function ReviewsEmpty() {
       </Typography>
       <Button
         component={Link}
-        to="/products"
+        to="/movies"
         variant="contained"
         sx={{ mt: 1 }}
       >
